@@ -45,7 +45,7 @@ include('abc.xyz');
 
 // Easy user input
 $_GET['a'] = 'xss';
-print("aaa" . $_GET['a']);
+echo htmlspecialchars($_GET['a'], ENT_QUOTES, 'UTF-8');
 echo($_GET['a']);
 echo $_GET['a'];
 echo "{$_GET['a']}";
