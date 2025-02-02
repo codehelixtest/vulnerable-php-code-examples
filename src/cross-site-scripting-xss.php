@@ -6,5 +6,6 @@ if (PHP_SAPI === 'cli') {
 
 if (NULL == $_GET['name']) $_GET['name'] = "Guest! ";
 
-echo 'Hello, welcome ' . $_GET['name'];
+$name = htmlspecialchars($_GET['name'] ?? 'Guest! ', ENT_QUOTES, 'UTF-8');
+echo 'Hello, welcome ' . $name;
 
