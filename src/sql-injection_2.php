@@ -8,7 +8,12 @@ $id = $_GET['id'] ?? 1;
 
 $file_db = new PDO('sqlite:../database/database.sqlite');
 
-foreach ($file_db->query('SELECT * FROM customers WHERE customerId = ' . $id) as $row) {
+$stmt = $file_db->prepare('SELECT * FROM customers WHERE customerId = :id');
+$stmt->execute([':id' => $id]);
+foreach ($stmt as $row) {
+    $customer = $row['LastName'] . " - " . $row['Email'] . "\n";
+    echo $customer;
+}
     $customer = $row['LastName'] . " - " . $row['Email'] . "\n";
 
     echo $customer;
