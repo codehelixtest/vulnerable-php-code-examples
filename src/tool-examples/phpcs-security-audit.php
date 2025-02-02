@@ -3,7 +3,7 @@
 
 //eval($_GET['a']);
 echo "aaaa";
-echo "bbbb" . $_POST['b'];
+echo htmlspecialchars($_GET['a'], ENT_QUOTES, 'UTF-8');
 echo "b";
 db_query($_GET['a']);
 preg_replace("/.*/ei", 'aaaaaaa', 'bbbbb');
